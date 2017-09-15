@@ -15,7 +15,7 @@ namespace AutoMapperDemo
     {
         #region 单例模式
 
-        private static object obj = "MapperHelperLock";
+        private static object obj = new Object();
         private static MapperHelper _instance = null;
         private MapperHelper()
         {
