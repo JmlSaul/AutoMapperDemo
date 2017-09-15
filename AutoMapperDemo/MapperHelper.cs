@@ -15,7 +15,7 @@ namespace AutoMapperDemo
     {
         #region 单例模式
 
-        private static object obj = new Object();
+        private static readonly object MapperHelperLock = new object();
         private static MapperHelper _instance = null;
         private MapperHelper()
         {
@@ -29,7 +29,7 @@ namespace AutoMapperDemo
             {
                 if (_instance == null)
                 {
-                    lock (obj)
+                    lock (MapperHelperLock)
                     {
                         if (_instance == null)
                         {
@@ -48,7 +48,7 @@ namespace AutoMapperDemo
         /// </summary>
         public static void Register()
         {
-            new Maps();
+            Maps.CreateMaps();
             Mapper.Initialize(_instance);
         }
     }

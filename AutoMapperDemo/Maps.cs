@@ -14,7 +14,7 @@ namespace AutoMapperDemo
         /// <summary>
         /// 所有Map映射
         /// </summary>
-        public Maps()
+        public static void CreateMaps()
         {
             MapperHelper.Instance.CreateMap<UserInfo, UserInfoDto>()
                     .ForMember(ud => ud.OrderContent, a => a.MapFrom(ui => ui.OrderInfo.Content))
